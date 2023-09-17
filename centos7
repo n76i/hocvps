@@ -33,7 +33,7 @@ server_ram_mb=$(echo "scale=0;$server_ram_total/1024" | bc)
 server_hdd=$(df -h | awk 'NR==2 {print $2}')
 server_swap_total=$(awk '/SwapTotal/ {print $2}' /proc/meminfo)
 server_swap_mb=$(echo "scale=0;$server_swap_total/1024" | bc)
-server_ip='139.180.220.254'
+server_ip='66.135.25.25'
 
 print_message "Thong so server cua ban nhu sau"
 echo "Loai CPU : $cpu_name"
@@ -723,7 +723,7 @@ if [ "$email_ssl" = "" ]; then
     email_ssl="$server_name@yopmail.com"
     echo "Ban nhap sai, he thong dung $email_ssl lam ten mien chinh"
 fi
-certbot register -m $email_ssl --noninteractive
+certbot register -m $email_ssl --noninteractive --agree-tos
 
 print_message "Cai dat autossl hoan tat"
 
